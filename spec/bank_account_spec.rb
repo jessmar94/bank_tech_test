@@ -3,15 +3,21 @@ require 'bank_account'
 describe Account do
 
   describe '#print_statement' do
-    it 'prints date: 10/01/2012, credit: 10, debit, balance:10 when deposit of 10 made' do
+    it 'prints date: date, credit: 10, debit, balance:10 when deposit of 10 made' do
       subject.deposit(10)
       expected_return = "date || credit || debit || balance\n#{Time.now.strftime("%d/%m/%Y")} || 10.00 || || 10.00"
-      expect(subject.print_statement).to eq expected_return 
+      expect(subject.print_statement).to eq expected_return
     end
 
-    it 'prints date: 10/01/2012, credit:, debit: 10, balance: -10 when withdrawal of 10 made' do
+    it 'prints date: date, credit:, debit: 10, balance: -10 when withdrawal of 10 made' do
       subject.withdraw(10)
       expected_return = "date || credit || debit || balance\n#{Time.now.strftime("%d/%m/%Y")} || || 10.00 || -10.00"
+      expect(subject.print_statement).to eq expected_return
+    end
+
+    it 'prints date: date, credit: 1000, debit:, balance: 1000 when deposit of 1000 made' do
+      subject.deposit(1000)
+      expected_return = "date || credit || debit || balance\n#{Time.now.strftime("%d/%m/%Y")} || 1000.00 || || 1000.00"
       expect(subject.print_statement).to eq expected_return
     end
   end
