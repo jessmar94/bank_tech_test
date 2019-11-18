@@ -1,58 +1,50 @@
-class Account
+# frozen_string_literal: true
 
+class Account
   def initialize
     @balance = 0
     @transactions_array = []
   end
 
-  def get_balance
-    return format_balance(@balance)
+  def show_balance
+    format_amnt(@balance)
   end
 
   def deposit(amount)
     @balance += amount
-    @deposit_made = "#{format_date} || #{format_amount(amount)} || || #{get_balance}"
-    transaction_event(deposit: @deposit_made)
+    @deposit = "#{format_date} || #{format_amnt(amount)} || || #{show_balance}"
+    transaction_event(deposit: @deposit)
   end
 
   def withdraw(amount)
-    if @balance == 0 || @balance < amount
-      puts "Sorry you can't withdraw more than your balance. Your current balance is #{get_balance}."
-    else
-      @balance -= amount
-      @withdrawal_made = "#{format_date} || || #{format_amount(amount)} || #{get_balance}"
-      transaction_event(withdrawal: @withdrawal_made)
-    end 
+    @balance -= amount
+    @withdraw = "#{format_date} || || #{format_amnt(amount)} || #{show_balance}"
+    transaction_event(withdrawal: @withdraw)
   end
 
   def print_statement
-    statement =  "date || credit || debit || balance\n"
-    @transactions_array.each do | txn |
+    statement = "date || credit || debit || balance\n"
+    @transactions_array.each do |txn|
       statement += txn + "\n"
     end
-    return statement.chomp("\n")
+    statement.chomp("\n")
   end
 
   private
 
-  def format_amount(amount)
-    ("%.2f" % amount)
-  end
-
-  def format_balance(balance)
-    ("%.2f" % @balance)
+  def format_amnt(amount)
+    ('%.2f' % amount)
   end
 
   def format_date
-    Time.now.strftime("%d/%m/%Y")
+    Time.now.strftime('%d/%m/%Y')
   end
 
   def transaction_event(deposit: nil, withdrawal: nil)
     if deposit
-      return @transactions_array.unshift(deposit)
+      @transactions_array.unshift(deposit)
     elsif withdrawal
-      return @transactions_array.unshift(withdrawal)
+      @transactions_array.unshift(withdrawal)
     end
   end
-
 end
