@@ -21,4 +21,11 @@ describe Account do
       expect(subject.get_balance).to eq "10.00"
     end
   end
+
+  describe '#withdraw' do
+    it 'updates balance to -10 when withdraw 10' do
+      subject.withdraw(10)
+      expect(subject.get_balance).to eq "-10.00"
+    end
+  end
 end
