@@ -13,4 +13,11 @@ describe Account do
       expect(subject.get_balance).to eq 0.00
     end
   end
+
+  describe '#deposit' do
+    it 'updates balance to 10 when deposit 10' do
+      subject.deposit(10)
+      expect(subject.get_balance).to eq 10.00
+    end
+  end
 end
