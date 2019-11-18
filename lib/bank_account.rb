@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+require_relative 'statement_printer'
+
 class Account
+
   def initialize
     @balance = 0
     @transactions_array = []
@@ -23,11 +26,7 @@ class Account
   end
 
   def print_statement
-    statement = "date || credit || debit || balance\n"
-    @transactions_array.each do |txn|
-      statement += txn + "\n"
-    end
-    statement.chomp("\n")
+    Statement.new(@transactions_array).print
   end
 
   private
