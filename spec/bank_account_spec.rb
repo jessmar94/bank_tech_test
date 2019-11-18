@@ -27,6 +27,14 @@ describe Account do
       expected_return = "date || credit || debit || balance\n#{Time.now.strftime("%d/%m/%Y")} || 2000.00 || || 3000.00\n#{Time.now.strftime("%d/%m/%Y")} || 1000.00 || || 1000.00"
       expect(subject.print_statement).to eq expected_return
     end
+
+    it 'prints date: date, credit:, debit: 500, balance: 2500, date: date, credit: 2000, debit:, balance: 3000, date: date, credit: 1000, debit:, balance: 1000 when deposit of 1000 & 2000 made' do
+      subject.deposit(1000)
+      subject.deposit(2000)
+      subject.withdraw(500)
+      expected_return = "date || credit || debit || balance\n#{Time.now.strftime("%d/%m/%Y")} || || 500.00 || 2500.00\n#{Time.now.strftime("%d/%m/%Y")} || 2000.00 || || 3000.00\n#{Time.now.strftime("%d/%m/%Y")} || 1000.00 || || 1000.00"
+      expect(subject.print_statement).to eq expected_return
+    end
   end
 
   describe '#get_balance' do

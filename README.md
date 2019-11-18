@@ -19,10 +19,6 @@ date || credit || debit || balance
 Deposit = Credit (+)
 Withdraw = Debit (-)
 
-Edge Cases:
-- error message if try to withdraw and balance is < 0
-- if user inputs # with > 2 decimal places 
-
 As a user,
 So I know how much money I have,
 I want to be able to check my balance.
@@ -53,3 +49,10 @@ deposit(1000)    | print_statement --> date || credit || debit || balance\nTime.
 deposit(1000), deposit(2000)    | print_statement --> date || credit || debit || balance\nTime.now || 2000.00 || || 3000.00\nTime.now || 1000.00 || || 1000.00
 
 deposit(1000), deposit(2000), withdraw(500)    | print_statement --> date || credit || debit || balance\nTime.now || || 500.00 || 2500.00\nTime.now || 2000.00 || || 3000.00\nTime.now || 1000.00 || || 1000.00
+
+Edge Cases:
+- Error message if try to withdraw and balance is <= 0
+- Error message if try to withdraw more than they have in their account
+
+withdraw(0)   | "Sorry you don't have enough money in your account"
+balance = 10, withdraw(20) | "Sorry you can't withdraw more than you have in your account"
