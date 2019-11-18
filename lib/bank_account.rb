@@ -10,16 +10,17 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    return @deposit_made = "#{format_date} || #{format_amount(amount)} || || #{get_balance}"
+    @transaction = "#{format_date} || #{format_amount(amount)} || || #{get_balance}"
+    # @transactions_array << @deposit_made
   end
 
   def withdraw(amount)
     @balance -= amount
-    return @deposit_made = "#{format_date} || || #{format_amount(amount)} || #{get_balance}"
+    @transaction = "#{format_date} || || #{format_amount(amount)} || #{get_balance}"
   end
 
   def print_statement
-    return "date || credit || debit || balance\n#{@deposit_made}"
+    return "date || credit || debit || balance\n#{@transaction}"
   end
 
   private
