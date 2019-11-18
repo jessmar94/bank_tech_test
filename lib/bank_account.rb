@@ -5,12 +5,12 @@ class Account
   end
 
   def get_balance
-    return format_balance(@balance) 
+    return format_balance(@balance)
   end
 
   def deposit(amount)
     @balance += amount
-    return @deposit_made = "#{Time.now.strftime("%d/%m/%Y")} || #{format_amount(amount)} || || #{get_balance}"
+    return @deposit_made = "#{format_date} || #{format_amount(amount)} || || #{get_balance}"
   end
 
   def print_statement
@@ -25,6 +25,10 @@ class Account
 
   def format_balance(balance)
     ("%.2f" % @balance)
+  end
+
+  def format_date
+    Time.now.strftime("%d/%m/%Y")
   end
 
 end
