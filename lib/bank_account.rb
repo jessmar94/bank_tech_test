@@ -22,10 +22,11 @@ class Account
   end
 
   def print_statement
-    p "date || credit || debit || balance"
+    statement =  "date || credit || debit || balance\n"
     @transactions_array.each do | txn |
-      p txn
+      statement += txn + "\n"
     end
+    return statement.chomp("\n")
   end
 
   private
@@ -44,9 +45,9 @@ class Account
 
   def transaction_event(deposit: nil, withdrawal: nil)
     if deposit
-      return @transactions_array.unshift(@deposit_made)
+      return @transactions_array.unshift(deposit)
     elsif withdrawal
-      return @transactions_array.unshift(@withdrawal_made)
+      return @transactions_array.unshift(withdrawal)
     end
   end
 

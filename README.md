@@ -19,6 +19,10 @@ date || credit || debit || balance
 Deposit = Credit (+)
 Withdraw = Debit (-)
 
+Edge Cases:
+- error message if try to withdraw and balance is < 0
+- if user inputs # with > 2 decimal places 
+
 As a user,
 So I know how much money I have,
 I want to be able to check my balance.
