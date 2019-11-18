@@ -2,6 +2,9 @@
 
 require 'bank_account'
 
+# allow(Time).to_receive(:now) { Time.now(2012, 01, 12)}
+
+
 describe Account do
   describe '#print_statement' do
     it 'prints date: date, credit: 10, debit, balance:10 when deposit of 10 made' do
