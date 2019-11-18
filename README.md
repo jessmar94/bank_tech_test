@@ -54,5 +54,5 @@ Edge Cases:
 - Error message if try to withdraw and balance is <= 0
 - Error message if try to withdraw more than they have in their account
 
-withdraw(0)   | "Sorry you don't have enough money in your account"
+withdraw(0)   | "Sorry you can't withdraw more than you have in your account"
 balance = 10, withdraw(20) | "Sorry you can't withdraw more than you have in your account"

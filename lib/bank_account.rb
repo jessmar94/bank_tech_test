@@ -16,9 +16,13 @@ class Account
   end
 
   def withdraw(amount)
-    @balance -= amount
-    @withdrawal_made = "#{format_date} || || #{format_amount(amount)} || #{get_balance}"
-    transaction_event(withdrawal: @withdrawal_made)
+    if @balance == 0 || @balance < amount
+      puts "Sorry you can't withdraw more than your balance. Your current balance is #{get_balance}."
+    else
+      @balance -= amount
+      @withdrawal_made = "#{format_date} || || #{format_amount(amount)} || #{get_balance}"
+      transaction_event(withdrawal: @withdrawal_made)
+    end 
   end
 
   def print_statement
