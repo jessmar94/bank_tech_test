@@ -10,8 +10,8 @@ class Statement
 
   def print
     statement = "date || credit || debit || balance\n"
-    @transactions.each do |txn|
-      statement += txn + "\n"
+    @transactions.each do |transaction|
+      statement += transaction + "\n"
     end
     statement.chomp("\n")
   end
