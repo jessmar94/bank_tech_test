@@ -2,7 +2,7 @@
 
 require_relative 'statement_printer'
 require_relative 'transactions'
-# Account manages deposits, withdrawals and printing the statement.
+# Account manages deposits, withdrawals and viewing the account statement.
 class Account
   def initialize
     @balance = 0
@@ -16,7 +16,7 @@ class Account
   def deposit(amount)
     @balance += amount
     @deposit = "#{date} || #{format_amnt(amount)} || || #{show_balance}"
-    Transaction.new(@transactions).transaction_event(deposit: @deposit)
+    Transactions.new(@transactions).transaction_event(deposit: @deposit)
     puts "Deposit successful. Your balance is now £#{show_balance}."
   end
 
@@ -24,7 +24,7 @@ class Account
     if (@balance - amount).positive?
       @balance -= amount
       @withdraw = "#{date} || || #{format_amnt(amount)} || #{show_balance}"
-      Transaction.new(@transactions).transaction_event(withdrawal: @withdraw)
+      Transactions.new(@transactions).transaction_event(withdrawal: @withdraw)
       puts "Withdrawal successful. Your balance is now £#{show_balance}."
     else
       puts 'Sorry, you have insufficient funds in your account to withdraw.'

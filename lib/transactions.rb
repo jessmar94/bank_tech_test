@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Transaction pushes the deposit or withdrawal into the transactions array.
-class Transaction
+class Transactions
   attr_reader :transactions
 
   def initialize(transactions)
