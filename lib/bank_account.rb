@@ -2,9 +2,8 @@
 
 require_relative 'statement_printer'
 require_relative 'transactions'
-
+# Account manages deposits, withdrawals and printing the statement.
 class Account
-
   def initialize
     @balance = 0
     @transactions = []
@@ -16,19 +15,19 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @deposit = "#{format_date} || #{format_amnt(amount)} || || #{show_balance}"
+    @deposit = "#{date} || #{format_amnt(amount)} || || #{show_balance}"
     Transaction.new(@transactions).transaction_event(deposit: @deposit)
     puts "Deposit successful. Your balance is now £#{show_balance}."
   end
 
   def withdraw(amount)
-    if @balance - amount > 0
+    if (@balance - amount).positive?
       @balance -= amount
-      @withdraw = "#{format_date} || || #{format_amnt(amount)} || #{show_balance}"
+      @withdraw = "#{date} || || #{format_amnt(amount)} || #{show_balance}"
       Transaction.new(@transactions).transaction_event(withdrawal: @withdraw)
       puts "Withdrawal successful. Your balance is now £#{show_balance}."
     else
-      puts "Sorry, you have insufficient funds in your account to withdraw."
+      puts 'Sorry, you have insufficient funds in your account to withdraw.'
     end
   end
 
@@ -42,8 +41,7 @@ class Account
     ('%.2f' % amount)
   end
 
-  def format_date
+  def date
     Time.now.strftime('%d/%m/%Y')
   end
-
 end

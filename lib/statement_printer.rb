@@ -1,5 +1,7 @@
-class Statement
+# frozen_string_literal: true
 
+# Statement is responsible for being the statement printer.
+class Statement
   attr_reader :transactions
 
   def initialize(transactions)
