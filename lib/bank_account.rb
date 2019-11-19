@@ -21,9 +21,13 @@ class Account
   end
 
   def withdraw(amount)
-    @balance -= amount
-    @withdraw = "#{format_date} || || #{format_amnt(amount)} || #{show_balance}"
-    Transaction.new(@transactions).transaction_event(withdrawal: @withdraw)
+    if @balance - amount > 0
+      @balance -= amount
+      @withdraw = "#{format_date} || || #{format_amnt(amount)} || #{show_balance}"
+      Transaction.new(@transactions).transaction_event(withdrawal: @withdraw)
+    else
+      puts "Sorry, you have insufficient funds in your account to withdraw."
+    end 
   end
 
   def print_statement

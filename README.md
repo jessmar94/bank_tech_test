@@ -51,8 +51,5 @@ deposit(1000), deposit(2000)    | print_statement --> date || credit || debit ||
 deposit(1000), deposit(2000), withdraw(500)    | print_statement --> date || credit || debit || balance\nTime.now || || 500.00 || 2500.00\nTime.now || 2000.00 || || 3000.00\nTime.now || 1000.00 || || 1000.00
 
 Edge Cases:
-- Error message if try to withdraw and balance is <= 0
-- Error message if try to withdraw more than they have in their account
-
-withdraw(0)   | "Sorry you can't withdraw more than you have in your account"
-balance = 10, withdraw(20) | "Sorry you can't withdraw more than you have in your account"
+- Unable to withdraw if they have insufficient funds
+balance(0), withdraw(10)   | Error message
