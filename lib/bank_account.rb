@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 require_relative 'statement_printer'
+require_relative 'transactions'
 
 class Account
 
   def initialize
     @balance = 0
-    @transactions_array = []
+    @transactions = []
   end
 
   def show_balance
@@ -16,17 +17,17 @@ class Account
   def deposit(amount)
     @balance += amount
     @deposit = "#{format_date} || #{format_amnt(amount)} || || #{show_balance}"
-    transaction_event(deposit: @deposit)
+    Transaction.new(@transactions).transaction_event(deposit: @deposit)
   end
 
   def withdraw(amount)
     @balance -= amount
     @withdraw = "#{format_date} || || #{format_amnt(amount)} || #{show_balance}"
-    transaction_event(withdrawal: @withdraw)
+    Transaction.new(@transactions).transaction_event(withdrawal: @withdraw)
   end
 
   def print_statement
-    Statement.new(@transactions_array).print
+    Statement.new(@transactions).print
   end
 
   private
@@ -39,11 +40,4 @@ class Account
     Time.now.strftime('%d/%m/%Y')
   end
 
-  def transaction_event(deposit: nil, withdrawal: nil)
-    if deposit
-      @transactions_array.unshift(deposit)
-    elsif withdrawal
-      @transactions_array.unshift(withdrawal)
-    end
-  end
 end
