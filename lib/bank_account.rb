@@ -18,6 +18,7 @@ class Account
     @balance += amount
     @deposit = "#{format_date} || #{format_amnt(amount)} || || #{show_balance}"
     Transaction.new(@transactions).transaction_event(deposit: @deposit)
+    puts "Deposit successful. Your balance is now £#{show_balance}."
   end
 
   def withdraw(amount)
@@ -25,9 +26,10 @@ class Account
       @balance -= amount
       @withdraw = "#{format_date} || || #{format_amnt(amount)} || #{show_balance}"
       Transaction.new(@transactions).transaction_event(withdrawal: @withdraw)
+      puts "Withdrawal successful. Your balance is now £#{show_balance}."
     else
       puts "Sorry, you have insufficient funds in your account to withdraw."
-    end 
+    end
   end
 
   def print_statement

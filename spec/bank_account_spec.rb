@@ -2,42 +2,45 @@
 
 require 'bank_account'
 
-# allow(Time).to_receive(:now) { Time.now(2012, 01, 12)}
-
-
 describe Account do
   describe '#print_statement' do
-    it 'prints date: date, credit: 10, debit, balance:10 when deposit of 10 made' do
+    it 'prints table columns when no money in or out of Account' do
+      result = "date || credit || debit || balance"
+      expect(subject.print_statement).to eq result
+    end
+
+    it 'prints balance:10 when deposit of 10 made' do
       subject.deposit(10)
-      expected_return = "date || credit || debit || balance\n#{Time.now.strftime('%d/%m/%Y')} || 10.00 || || 10.00"
-      expect(subject.print_statement).to eq expected_return
+      result = "#{Time.now.strftime('%d/%m/%Y')} || 10.00 || || 10.00"
+      expect(subject.print_statement).to include result
     end
 
-    it 'prints debit: 10, balance: -10 when withdrawal of 10 made' do
-      subject.withdraw(10)
-      expected_return = "date || credit || debit || balance\n#{Time.now.strftime('%d/%m/%Y')} || || 10.00 || -10.00"
-      expect(subject.print_statement).to eq expected_return
-    end
-
-    it 'prints credit: 1000, balance: 1000 when deposit of 1000 made' do
+    it 'prints balance: 1000 when deposit of 1000 made' do
       subject.deposit(1000)
-      expected_return = "date || credit || debit || balance\n#{Time.now.strftime('%d/%m/%Y')} || 1000.00 || || 1000.00"
-      expect(subject.print_statement).to eq expected_return
+      result = "#{Time.now.strftime('%d/%m/%Y')} || 1000.00 || || 1000.00"
+      expect(subject.print_statement).to include result
     end
 
-    it 'prints c: 2000, b: 3000, c: 1000, b: 1000 if d: 1000 & 2000 made' do
+    it 'prints balance: 3000 when deposit of 1000 & 2000 made' do
       subject.deposit(1000)
       subject.deposit(2000)
-      expected_return = "date || credit || debit || balance\n#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || || 3000.00\n#{Time.now.strftime('%d/%m/%Y')} || 1000.00 || || 1000.00"
-      expect(subject.print_statement).to eq expected_return
+      result = "#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || || 3000.00"
+      expect(subject.print_statement).to include result
     end
 
-    it 'prints d:500, b:2500, c:2000, b:3000, c:1000, b:1000 if w:500 d:1000 d:2000 made' do
+    it 'prints balance: 10 when withdrawal of 10 made' do
+      subject.deposit(20)
+      subject.withdraw(10)
+      result = "#{Time.now.strftime('%d/%m/%Y')} || || 10.00 || 10.00"
+      expect(subject.print_statement).to include result
+    end
+
+    it 'prints balance: 2500 when w: 500, d: 2000, d: 1000' do
       subject.deposit(1000)
       subject.deposit(2000)
       subject.withdraw(500)
-      expected_return = "date || credit || debit || balance\n#{Time.now.strftime('%d/%m/%Y')} || || 500.00 || 2500.00\n#{Time.now.strftime('%d/%m/%Y')} || 2000.00 || || 3000.00\n#{Time.now.strftime('%d/%m/%Y')} || 1000.00 || || 1000.00"
-      expect(subject.print_statement).to eq expected_return
+      result = "#{Time.now.strftime('%d/%m/%Y')} || || 500.00 || 2500.00"
+      expect(subject.print_statement).to include result
     end
   end
 
@@ -55,9 +58,14 @@ describe Account do
   end
 
   describe '#withdraw' do
-    it 'updates balance to -10 when withdraw 10' do
+    it 'updates balance to 10 when withdraw 10' do
+      subject.deposit(20)
       subject.withdraw(10)
-      expect(subject.show_balance).to eq '-10.00'
+      expect(subject.show_balance).to eq '10.00'
+    end
+
+    it 'returns nil when withdraw 10 but balance is 0' do
+      expect(subject.withdraw(10)).to eq nil
     end
   end
 end
