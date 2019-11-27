@@ -32,7 +32,7 @@ class Account
   end
 
   def print_statement
-    Display.new(@transactions).print
+    Display.new(@transactions).format_statement
   end
 
   private

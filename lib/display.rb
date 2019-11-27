@@ -8,7 +8,7 @@ class Display
     @transactions = transactions
   end
 
-  def print
+  def format_statement
     statement = "date || credit || debit || balance\n"
     @transactions.each do |transaction|
       statement += transaction + "\n"
