@@ -1,10 +1,10 @@
 # frozen_string_literal: true
+
 require 'display'
 
 describe Display do
-
   let (:transactions) { ['10-01-2012 || 10.00 || || 10.00'] }
-  let (:display) { described_class.new(transactions)}
+  let (:display) { described_class.new(transactions) }
   let(:time_now) { '2019-11-27 20:49:08 +0000' }
 
   describe '#format_statement' do
