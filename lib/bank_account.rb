@@ -42,6 +42,6 @@ class Account
   end
 
   def date
-    Time.now.strftime('%d/%m/%Y')
+    Display.new(@transactions).format_date
   end
 end
