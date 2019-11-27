@@ -38,7 +38,7 @@ class Account
   private
 
   def format_amnt(amount)
-    ('%.2f' % amount)
+    Display.new(@transactions).format_money(amount)
   end
 
   def date

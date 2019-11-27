@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'display'
-# Display class formats money and date and prints the statement
+
 describe Display do
 
   let (:transactions) { ['10-01-2012 || 10.00 || || 10.00'] }

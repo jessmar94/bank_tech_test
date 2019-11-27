@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Statement is responsible for being the statement printer.
+# Display class formats money and date and prints the statement
 class Display
   attr_reader :transactions
 
