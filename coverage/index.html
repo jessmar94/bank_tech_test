@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-11-19T14:22:01+00:00">2019-11-19T14:22:01+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-11-27T20:34:58+00:00">2019-11-27T20:34:58+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -61,7 +61,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#db555980509bb7ba0dc4f0f41123b6413621e060" class="src_link" title="lib/statement_printer.rb">lib/statement_printer.rb</a></td>
+        <td class="strong"><a href="#5dfbc2198318d3dfd042c087c90d28af946bfcc6" class="src_link" title="lib/display.rb">lib/display.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>18</td>
         <td>9</td>
@@ -91,7 +91,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#1a76d1be5f7c36a6ce3e1cf221e481a8a78da242" class="src_link" title="spec/statement_printer_spec.rb">spec/statement_printer_spec.rb</a></td>
+        <td class="strong"><a href="#cdf4dc5c2b01cc6945673a759bda9fc90e8df429" class="src_link" title="spec/display_spec.rb">spec/display_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>13</td>
         <td>7</td>
@@ -155,7 +155,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">require_relative &#39;statement_printer&#39;</code>
+          <code class="ruby">require_relative &#39;display&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -347,7 +347,7 @@
         <li class="covered" data-hits="5" data-linenumber="35">
           <span class="hits">5</span>
           
-          <code class="ruby">    Statement.new(@transactions).print</code>
+          <code class="ruby">    Display.new(@transactions).print</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="36">
@@ -427,9 +427,9 @@
 </div>
 
       
-        <div class="source_table" id="db555980509bb7ba0dc4f0f41123b6413621e060">
+        <div class="source_table" id="5dfbc2198318d3dfd042c087c90d28af946bfcc6">
   <div class="header">
-    <h3>lib/statement_printer.rb</h3>
+    <h3>lib/display.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>9</b> relevant lines. 
@@ -462,7 +462,7 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">class Statement</code>
+          <code class="ruby">class Display</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
@@ -1054,9 +1054,9 @@
 </div>
 
       
-        <div class="source_table" id="1a76d1be5f7c36a6ce3e1cf221e481a8a78da242">
+        <div class="source_table" id="cdf4dc5c2b01cc6945673a759bda9fc90e8df429">
   <div class="header">
-    <h3>spec/statement_printer_spec.rb</h3>
+    <h3>spec/display_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>7</b> relevant lines. 
@@ -1083,7 +1083,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">require &#39;statement_printer&#39;</code>
+          <code class="ruby">require &#39;display&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
@@ -1095,7 +1095,7 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">describe Statement do</code>
+          <code class="ruby">describe Display do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
@@ -1119,7 +1119,7 @@
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">      statement = Statement.new(transactions)</code>
+          <code class="ruby">      statement = Display.new(transactions)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">

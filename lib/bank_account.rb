@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'statement_printer'
+require_relative 'display'
 require_relative 'transactions'
 # Account manages deposits, withdrawals and viewing the account statement.
 class Account
@@ -32,7 +32,7 @@ class Account
   end
 
   def print_statement
-    Statement.new(@transactions).print
+    Display.new(@transactions).print
   end
 
   private
