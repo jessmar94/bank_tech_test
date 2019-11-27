@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-11-27T20:46:21+00:00">2019-11-27T20:46:21+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-11-27T20:52:11+00:00">2019-11-27T20:52:11+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.63
+         3.5
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>6</b> files in total.
-    <b>99</b> relevant lines. 
-    <span class="green"><b>99</b> lines covered</span> and
+    <b>105</b> relevant lines. 
+    <span class="green"><b>105</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -63,11 +63,11 @@
       <tr>
         <td class="strong"><a href="#5dfbc2198318d3dfd042c087c90d28af946bfcc6" class="src_link" title="lib/display.rb">lib/display.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>22</td>
-        <td>11</td>
-        <td>11</td>
+        <td>26</td>
+        <td>13</td>
+        <td>13</td>
         <td>0</td>
-        <td>9.8</td>
+        <td>8.5</td>
       </tr>
       
       <tr>
@@ -93,9 +93,9 @@
       <tr>
         <td class="strong"><a href="#cdf4dc5c2b01cc6945673a759bda9fc90e8df429" class="src_link" title="spec/display_spec.rb">spec/display_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>20</td>
-        <td>10</td>
-        <td>10</td>
+        <td>28</td>
+        <td>14</td>
+        <td>14</td>
         <td>0</td>
         <td>1.4</td>
       </tr>
@@ -432,8 +432,8 @@
     <h3>lib/display.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>11</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>13</b> relevant lines. 
+      <span class="green"><b>13</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -483,8 +483,8 @@
           <code class="ruby">  def initialize(transactions)</code>
         </li>
       
-        <li class="covered" data-hits="43" data-linenumber="8">
-          <span class="hits">43</span>
+        <li class="covered" data-hits="44" data-linenumber="8">
+          <span class="hits">44</span>
           
           <code class="ruby">    @transactions = transactions</code>
         </li>
@@ -568,6 +568,30 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def format_date</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    Time.now.strftime(&#39;%d/%m/%Y&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">end</code>
@@ -1083,8 +1107,8 @@
     <h3>spec/display_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>10</b> relevant lines. 
-      <span class="green"><b>10</b> lines covered</span> and
+      <b>14</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1122,91 +1146,139 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="6">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="6">
+          <span class="hits">4</span>
           
           <code class="ruby">  let (:transactions) { [&#39;10-01-2012 || 10.00 || || 10.00&#39;] }</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="7">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="7">
+          <span class="hits">4</span>
           
           <code class="ruby">  let (:display) { described_class.new(transactions)}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  let(:time_now) { &#39;2019-11-27 20:49:08 +0000&#39; }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &#39;#initialize&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;starts with the transactions array&#39; do</code>
+          <code class="ruby">  describe &#39;#initialize&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(display.transactions).to eq transactions</code>
+          <code class="ruby">    it &#39;starts with the transactions array&#39; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      expect(display.transactions).to eq transactions</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="15">
           
-          <code class="ruby">  describe &#39;#format_money&#39; do</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;formats input of 10 to 10.00&#39; do</code>
+          <code class="ruby">  describe &#39;#format_money&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(display.format_money(10)).to eq &#39;10.00&#39;</code>
+          <code class="ruby">    it &#39;formats input of 10 to 10.00&#39; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      expect(display.format_money(10)).to eq &#39;10.00&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;#format_date&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &#39;formats date to 01/01/1010&#39; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">      # display.format_date</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(display.format_date).to eq &#39;27/11/2019&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">end</code>

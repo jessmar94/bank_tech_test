@@ -19,4 +19,8 @@ class Display
   def format_money(amount)
     ('%.2f' % amount)
   end
+
+  def format_date
+    Time.now.strftime('%d/%m/%Y')
+  end
 end
