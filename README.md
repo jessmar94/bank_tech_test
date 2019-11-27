@@ -3,12 +3,12 @@ Interact with my code via a REPL like IRB to print a bank statement. (This doesn
 The statement prints the date of the deposit or withdrawal, the amount deposited or withdrawn and the update balance.
 Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
-This project is composed of 3 classes - Account, Statement and Transactions. The Account class controls the user's ability to make deposits, withdrawals and to view their account statement.
+This project is composed of 3 classes - Account, Display and Transactions. The Account class controls the user's ability to make deposits, withdrawals and to view their account statement.
 
 This project has 13 passing tests with 100% test coverage.
 
 ## Acceptance criteria
-Given a client makes a deposit of 1000 on 10-01-2012 and a deposit of 2000 on 13-01-2012 and a withdrawal of 500 on 14-01-2012, when she prints her bank statement, then she would see:
+Given a client makes a deposit of 1000 on 10-01-2012 and a deposit of 2000 on 13-01-2012 and a withdrawal of 500 on 14-01-2012, when they print their bank statement, then they would see:
 ```
 date || credit || debit || balance
 14/01/2012 || || 500.00 || 2500.00
@@ -83,5 +83,4 @@ date || credit || debit || balance
 ## How to Test
 ```bash
 > rspec # Run the tests to ensure it works
-> rubocop # Check code quality
 ```
