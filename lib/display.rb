@@ -15,4 +15,8 @@ class Display
     end
     statement.chomp("\n")
   end
+
+  def format_money(amount)
+    ('%.2f' % amount)
+  end
 end
