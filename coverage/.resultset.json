@@ -73,6 +73,7 @@
         9,
         9,
         9,
+        9,
         null,
         null,
         1,
@@ -101,15 +102,6 @@
         5,
         null,
         null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
       "/Users/jessicamarais/Makers/Makers_Week10/bank_tech_test/lib/display.rb": [
@@ -120,7 +112,7 @@
         1,
         null,
         1,
-        19,
+        14,
         null,
         null,
         1,
@@ -156,7 +148,7 @@
         1,
         null,
         1,
-        12,
+        10,
         null,
         null,
         1,
@@ -230,6 +222,6 @@
         null
       ]
     },
-    "timestamp": 1576064634
+    "timestamp": 1576064824
   }
 }

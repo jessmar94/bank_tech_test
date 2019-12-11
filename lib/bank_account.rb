@@ -6,8 +6,9 @@ require_relative 'transactions'
 class Account
   def initialize
     @balance = 0
-    @transactions = []
-    @display = Display.new(@transactions)
+    @transactions_array = []
+    @display = Display.new(@transactions_array)
+    @transactions = Transactions.new(@transactions_array)
   end
 
   def show_balance
@@ -17,7 +18,7 @@ class Account
   def deposit(amount)
     @balance += amount
     @deposit = @display.format_deposit(amount, @balance)
-    Transactions.new(@transactions).transaction_event(deposit: @deposit)
+    @transactions.transaction_event(deposit: @deposit)
     puts "Deposit successful. Your balance is now £#{show_balance}."
   end
 
@@ -25,7 +26,7 @@ class Account
     if (@balance - amount).positive?
       @balance -= amount
       @withdraw = @display.format_withdraw(amount, @balance)
-      Transactions.new(@transactions).transaction_event(withdrawal: @withdraw)
+      @transactions.transaction_event(withdrawal: @withdraw)
       puts "Withdrawal successful. Your balance is now £#{show_balance}."
     else
       puts 'Sorry, you have insufficient funds in your account to withdraw.'
@@ -33,7 +34,7 @@ class Account
   end
 
   def print_statement
-    Display.new(@transactions).format_statement
+    @display.format_statement
   end
 
 end
