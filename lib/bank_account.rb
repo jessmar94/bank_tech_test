@@ -7,16 +7,16 @@ class Account
   def initialize
     @balance = 0
     @transactions = []
+    @display = Display.new(@transactions)
   end
 
   def show_balance
-    Display.new(@transactions).format_money(@balance)
+    @display.format_money(@balance)
   end
 
   def deposit(amount)
     @balance += amount
-    @deposit = Display.new(@transactions).format_deposit(amount, @balance)
-    # @deposit = "#{date} || #{format_amnt(amount)} || || #{show_balance}"
+    @deposit = @display.format_deposit(amount, @balance)
     Transactions.new(@transactions).transaction_event(deposit: @deposit)
     puts "Deposit successful. Your balance is now £#{show_balance}."
   end
@@ -24,8 +24,7 @@ class Account
   def withdraw(amount)
     if (@balance - amount).positive?
       @balance -= amount
-      @withdraw = Display.new(@transactions).format_withdraw(amount, @balance)
-      # @withdraw = "#{date} || || #{format_amnt(amount)} || #{show_balance}"
+      @withdraw = @display.format_withdraw(amount, @balance)
       Transactions.new(@transactions).transaction_event(withdrawal: @withdraw)
       puts "Withdrawal successful. Your balance is now £#{show_balance}."
     else
@@ -37,13 +36,4 @@ class Account
     Display.new(@transactions).format_statement
   end
 
-  private
-
-  # def format_amnt(amount)
-  #   Display.new(@transactions).format_money(amount)
-  # end
-
-  # def date
-  #   Display.new(@transactions).format_date
-  # end
 end

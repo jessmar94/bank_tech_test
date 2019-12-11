@@ -23,7 +23,22 @@ describe Display do
 
   describe '#format_date' do
     it 'formats date to 01/01/1010' do
-      expect(display.format_date).to eq '27/11/2019'
+      date = Time.now.strftime('%d/%m/%Y')
+      expect(display.format_date).to eq date
+    end
+  end
+
+  describe '#format_withdraw' do
+    it 'formats the withdraw statement' do
+      statement = "#{Time.now.strftime('%d/%m/%Y')} || || 10.00 || 20.00"
+      expect(display.format_withdraw(10, 20)).to eq statement
+    end
+  end
+
+  describe '#format_deposit' do
+    it 'formats the deposit statement' do
+      statement = "#{Time.now.strftime('%d/%m/%Y')} || 10.00 || || 10.00"
+      expect(display.format_deposit(10, 10)).to eq statement
     end
   end
 end
