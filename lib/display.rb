@@ -23,4 +23,12 @@ class Display
   def format_date
     Time.now.strftime('%d/%m/%Y')
   end
+
+  def format_withdraw(amount, balance)
+    "#{format_date} || || #{format_money(amount)} || #{format_money(balance)}"
+  end
+
+  def format_deposit(amount, balance)
+     "#{format_date} || #{format_money(amount)} || || #{format_money(balance)}"
+  end
 end
