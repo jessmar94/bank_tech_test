@@ -29,6 +29,6 @@ class Display
   end
 
   def format_deposit(amount, balance)
-     "#{format_date} || #{format_money(amount)} || || #{format_money(balance)}"
+    "#{format_date} || #{format_money(amount)} || || #{format_money(balance)}"
   end
 end

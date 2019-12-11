@@ -1,11 +1,11 @@
 ## Summary
 Interact with my code via a REPL like IRB to print a bank statement. (This doesn't need a command line interface that takes input from STDIN.)
-The statement prints the date of the deposit or withdrawal, the amount deposited or withdrawn and the update balance.
+The statement prints the date of the deposit or withdrawal, the amount deposited or withdrawn and the updated balance.
 Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
-This project is composed of 3 classes - Account, Display and Transactions. The Account class controls the user's ability to make deposits, withdrawals and to view their account statement.
+This project is composed of 3 classes - Account, Display and Transactions. The Account class controls the user's ability to make deposits, withdrawals and to view their account statement. The Display class formats various values such as date and money and formats the way the statement will be printed. The Transactions class manages updating the overall transactions array with the withdrawal and deposit amounts. 
 
-This project has 13 passing tests with 100% test coverage.
+This project has 15 passing tests with 100% test coverage.
 
 ## Acceptance criteria
 Given a client makes a deposit of 1000 on 10-01-2012 and a deposit of 2000 on 13-01-2012 and a withdrawal of 500 on 14-01-2012, when they print their bank statement, then they would see:

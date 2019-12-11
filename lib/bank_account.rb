@@ -36,5 +36,4 @@ class Account
   def print_statement
     @display.format_statement
   end
-
 end
